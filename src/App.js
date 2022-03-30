@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
 function App() {
+    const thingsToDo =  [   {
+        "id": 1,
+        "value": "Udelat neco hodne duleziteho"
+    },
+        {
+            "id": 2,
+            "value": "Nedelat nic"
+        }
+    ]
+
+    const [data, setData] = useState(thingsToDo)
+    const [value, setValue] = useState("")
+
+
+
+    const addHandler = function () {
+        //kopie objektu
+
+        const todo = {
+            id: new Date().getTime(),
+            value: value
+        }
+        const newData = [...data]
+        newData.push(todo)
+        console.log(newData)
+        setData(newData)
+    }
+    const removeHandler = function (id) {
+        //kopie objektu
+      /*  data.remove(item)
+        const newData = [...data]
+        setData(newData)*/
+        const filteredData = data.filter(item => item.id !== id)
+        setData(filteredData)
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div id="myDIV" className="header">
+            <h2>To-do List</h2>
+
+            <input type={"text"}value={value} id="myInput" placeholder={"Todoo"} onChange={(e)=>setValue(e.target.value)}/>
+
+            <span onClick={addHandler} className="addBtn">Add</span>
+        </div>
+        <ul id="myUL">
+             {data.map(item=><li>{item.value} <button className="align-right" onClick={()=>removeHandler(item.id)}>DONE</button> </li>)}
+        </ul>
     </div>
   );
 }

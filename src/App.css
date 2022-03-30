@@ -13,16 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -36,3 +26,62 @@
     transform: rotate(360deg);
   }
 }
+
+.align-right{
+  float: right;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+  padding: 15px 8px 12px 40px;
+  font-size:  15px;
+}
+ul li:hover {
+  background: #ddde;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.header {
+  background-color: #000 ;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+ /* width: 30%;*/
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+ /* width: 10%;*/
+  width: 50px;
+  background: #d9d9d9;
+  color: #555;
+  /*float: right;*/
+  right: 100px;
+  text-align: center;
+  font-size: 16px;
+}
+
